@@ -1,4 +1,4 @@
-package estruturarepetitiva.exercicios;
+package estruturarepetitiva.exercicios.wwhile;
 
 import java.util.Scanner;
 
