@@ -15,13 +15,13 @@ public class ContaMain {
         String accountHolder = input.nextLine();
 
         Conta conta;
-        System.out.print("Is there na initial deposit: ");
+        System.out.print("Is there an initial deposit: ");
         char responseHolder = input.next().charAt(0);
 
         if (responseHolder == 'y' || responseHolder == 'Y') {
             System.out.print("Enter initial deposit: ");
-            double depositoInitial = input.nextDouble();
-            conta = new Conta(accountNumber, accountHolder, depositoInitial);
+            double initialDeposit = input.nextDouble();
+            conta = new Conta(accountNumber, accountHolder, initialDeposit);
         } else
             conta = new Conta(accountNumber, accountHolder);
 
@@ -29,12 +29,13 @@ public class ContaMain {
 
         System.out.print("Enter a deposit value: ");
         double depositValueInAccount = input.nextDouble();
-        conta.depositInAccount(depositValueInAccount);
+        conta.deposit(depositValueInAccount);
         System.out.println("Updated account data: " + "\n" + conta);
 
         System.out.print("Enter a withdraw value: " );
         double withdrawInAccount = input.nextDouble();
-        conta.withdrawInAccount(withdrawInAccount);
+        conta.withdraw(withdrawInAccount);
         System.out.println("Updated account data: " + "\n" + conta);
+        input.close();
     }
 }

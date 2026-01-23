@@ -1,54 +1,48 @@
 package poo.membrosestaticos.exercicio.conta;
 
 public class Conta {
-    private final int numeroDaConta;
-    private String titularDaConta;
-    private double saldo;
+    private final int number;
+    private String holder;
+    private double balance;
 
-    public Conta(int numeroDaConta, String titularDaConta, double saldo) {
-        this.numeroDaConta = numeroDaConta;
-        this.titularDaConta = titularDaConta;
-        this.saldo = saldo;
+    public Conta(int number, String holder, double initialDeposit) {
+        this.number = number;
+        this.holder = holder;
+        deposit(initialDeposit);
     }
 
-    public Conta(int numeroDaConta, String titularDaConta) {
-        this(numeroDaConta, titularDaConta, 0.0);
+    public Conta(int number, String holder) {
+        this(number, holder, 0.0);
     }
 
-    public int getNumeroDaConta() {
-        return numeroDaConta;
+    public int getNumber() {
+        return number;
     }
 
-
-    public String getTitularDaConta() {
-        return titularDaConta;
+    public String getHolder() {
+        return holder;
     }
 
-    public void setTitularDaConta(String titularDaConta) {
-        this.titularDaConta = titularDaConta;
+    public void setHolder(String holder) {
+        this.holder = holder;
     }
 
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public double getBalance() {
+        return balance;
     }
 
     @Override
     public String toString() {
-        return "Account " + numeroDaConta + "," +
-                " Holder: " + titularDaConta + ", " +
-                String.format("Balance: $ %.2f", saldo);
+        return "Account " + number + "," +
+                " Holder: " + holder + ", " +
+                String.format("Balance: $ %.2f", balance);
     }
 
-    public void depositInAccount(double depositValueInAccount) {
-        this.saldo += depositValueInAccount;
+    public void deposit(double depositValueInAccount) {
+        this.balance += depositValueInAccount;
     }
 
-    public void withdrawInAccount(double withdrawInAccount) {
-       double taxa = withdrawInAccount + 5;
-       this.saldo -= taxa;
+    public void withdraw(double withdrawInAccount) {
+       this.balance -= withdrawInAccount + 5.0;
     }
 }
