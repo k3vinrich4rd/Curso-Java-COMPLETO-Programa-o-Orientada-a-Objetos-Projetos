@@ -80,8 +80,8 @@ public class Alturas {
             }
         }
 
-        double mediaPessoasComMenosDeDesseisAnos = (contador * 100.0) / quantidadeDePessoas;
-        System.out.printf("\nPessoas com menos de 16 anos: %.2f%%\n", mediaPessoasComMenosDeDesseisAnos);
+        double porcentagemMenoresDe16 = (contador * 100.0) / quantidadeDePessoas;
+        System.out.printf("\nPessoas com menos de 16 anos: %.1f%%\n", porcentagemMenoresDe16);
         for (int i = 0; i < idades.length; i++) {
             if (idades[i] < 16) {
                 System.out.println(nomes[i]);
