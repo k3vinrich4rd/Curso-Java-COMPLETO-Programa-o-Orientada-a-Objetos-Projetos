@@ -1,8 +1,6 @@
 package enumeracoes.entities.enums.exercicios.worker.entities;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class HourContract {
 
@@ -14,6 +12,7 @@ public class HourContract {
     public HourContract() {
 
     }
+
     public HourContract(Date date, double valuePerHour, Integer hours) {
         this.date = date;
         this.valuePerHour = valuePerHour;
