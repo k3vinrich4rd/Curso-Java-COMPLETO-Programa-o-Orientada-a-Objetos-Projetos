@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Post {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private Date moment;
     private String title;
     private String content;
@@ -18,12 +18,10 @@ public class Post {
 
     }
 
-    public Post(Date moment, String title, String content, Integer likes, List<Comment> comments) {
+    public Post(Date moment, String title, String content, Integer likes) {
         this.moment = moment;
         this.title = title;
         this.content = content;
-        this.likes = likes;
-
     }
 
     public Date getMoment() {

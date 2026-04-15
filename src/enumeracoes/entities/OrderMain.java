@@ -1,5 +1,7 @@
 package enumeracoes.entities;
 
+import enumeracoes.entities.enums.exercicios.pedido.enums.OrderStatus;
+
 import java.util.Date;
 
 public class OrderMain {
