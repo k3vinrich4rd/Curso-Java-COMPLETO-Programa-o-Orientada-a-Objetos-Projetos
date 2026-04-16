@@ -1,4 +1,8 @@
-package herancaepolimorfismo.entities;
+package herancaepolimorfismo.entities.teste;
+
+import herancaepolimorfismo.entities.Account;
+import herancaepolimorfismo.entities.BusinessAccount;
+import herancaepolimorfismo.entities.SavingsAccount;
 
 public class AccountMain {
     public static void main(String[] args) {
