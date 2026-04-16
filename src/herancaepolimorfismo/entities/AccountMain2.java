@@ -1,15 +1,11 @@
-package herancaepolimorfismo.entities.teste;
-
-import herancaepolimorfismo.entities.Account;
-import herancaepolimorfismo.entities.BusinessAccount;
-import herancaepolimorfismo.entities.SavingsAccount;
+package herancaepolimorfismo.entities;
 
 public class AccountMain2 {
     public static void main(String[] args) {
 
-        Account acc1 = new Account(1001, "Alex", 1000.0);
-        acc1.withdraw(200.0);
-        System.out.println(acc1.getBalance());
+        //Account acc1 = new Account(1001, "Alex", 1000.0);
+        //acc1.withdraw(200.0);
+        //System.out.println(acc1.getBalance());
 
         SavingsAccount acc2 = new SavingsAccount(1001, "Yasmin", 1000.0, 0.01);
         acc2.withdraw(200.0);
