@@ -18,7 +18,7 @@ public class Main {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         System.out.println("Entre com os dados do contrato: ");
-        System.out.println("Número: ");
+        System.out.print("Número: ");
         int numeroContrato = input.nextInt();
         input.nextLine();
         System.out.print("Data (dd/MM/yyyy): ");
@@ -35,12 +35,7 @@ public class Main {
 
         System.out.println("Parcelas");
         for (Installment installment : contract.getInstallments())
-            System.out.println(
-                    installment.getDueDate().format(dateTimeFormatter)
-                            + " - "
-                            + String.format("%.2f", installment.getAmount())
-            );
-
+            System.out.println(installment);
 
         input.close();
     }
