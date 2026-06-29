@@ -1,4 +1,4 @@
-package programacaofuncionaleexpressoeslambda.demo1.entities;
+package programacaofuncionaleexpressoeslambda.problemaExemplo.entities;
 
 public class Product {
 
