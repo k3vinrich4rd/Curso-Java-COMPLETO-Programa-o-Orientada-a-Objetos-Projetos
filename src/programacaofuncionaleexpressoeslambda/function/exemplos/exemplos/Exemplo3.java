@@ -20,7 +20,7 @@ public class Exemplo3 {
 
         //O map é uma operação intermediária que transforma cada elemento da lista em outro elemento, no caso, o nome do produto em maiúsculo.
         //Neste caso executa o método apply da classe UpperCaseName que implementa a interface Function, que recebe um Product e retorna uma String.
-        //O collect é uma operação terminal que transforma o stream em uma lista.
+        //O collect é uma operação terminal que transforma o programacaofuncionaleexpressoeslambda.stream em uma lista.
         //instancia de new UpperCaseName() é substituída por uma reference method para o método nonstaticUpperCaseName da classe Product
         List<String> names = list.stream().map(Product::nonstaticUpperCaseName).collect(Collectors.toList());
         //Reference method para println

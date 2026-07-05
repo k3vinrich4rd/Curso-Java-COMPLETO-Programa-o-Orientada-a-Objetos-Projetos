@@ -31,7 +31,7 @@ public class ListasExemplo1 {
 
         System.out.println("-------------------------");
 
-        //List<String> resultFilter = nomes.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList()); // para filtrar informações na lista (Forma depreciada)
+        //List<String> resultFilter = nomes.programacaofuncionaleexpressoeslambda.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList()); // para filtrar informações na lista (Forma depreciada)
         List<String> resultFilter = nomes.stream().filter(x -> x.charAt(0) == 'A').toList(); //Forma atual
         for(String result : resultFilter) {
             System.out.println(result);

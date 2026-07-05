@@ -11,7 +11,7 @@ public class Exemplo {
 
 
         /* Código conciso
-        Integer sum = list.stream().reduce(0, Integer::sum);
+        Integer sum = list.programacaofuncionaleexpressoeslambda.stream().reduce(0, Integer::sum);
          */
 
 
