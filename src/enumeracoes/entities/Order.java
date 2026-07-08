@@ -7,6 +7,9 @@ import java.util.Date;
 public class Order {
     private Integer id;
     private Date moment;
+
+    // O status do pedido é representado por um enum.
+    // Isso evita uso de texto solto e deixa o código mais seguro.
     private OrderStatus orderStatus;
 
     public Order() {
@@ -46,6 +49,7 @@ public class Order {
 
     @Override
     public String toString() {
+        // toString() facilita visualizar o objeto durante testes e exemplos.
         return "Order{" +
                 "id=" + id +
                 ", moment=" + moment +

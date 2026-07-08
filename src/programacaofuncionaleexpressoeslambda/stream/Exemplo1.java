@@ -7,35 +7,25 @@ import java.util.stream.Stream;
 public class Exemplo1 {
     public static void main(String[] args) {
 
-        // Lista base usada como fonte de dados da primeira Stream.
+        // Fonte de dados inicial para os exemplos.
         List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
 
         /*
-         * STREAM:
-         * É um fluxo de dados usado para processar elementos de forma declarativa.
+         * Stream:
+         * fluxo de dados usado para processar elementos sem alterar a coleção original.
          *
          * map(...):
-         * Transforma cada elemento da programacaofuncionaleexpressoeslambda.stream em outro valor.
-         *
-         * Aqui:
-         * cada número da lista será multiplicado por 10.
-         *
-         * Exemplo:
-         * 3 -> 30
-         * 4 -> 40
-         * 5 -> 50
+         * transforma cada elemento da stream.
+         * Neste caso, cada número da lista é multiplicado por 10.
          */
         Stream<Integer> st1 = list.stream().map(p -> p * 10);
 
-        // toArray() converte a programacaofuncionaleexpressoeslambda.stream em array.
-        // Arrays.toString(...) imprime o array de forma legível.
+        // toArray() encerra o processamento da stream e gera um array.
         System.out.println(Arrays.toString(st1.toArray()));
 
         /*
          * Stream.of(...):
-         * Cria uma programacaofuncionaleexpressoeslambda.stream diretamente a partir dos valores informados.
-         *
-         * Neste caso, temos uma programacaofuncionaleexpressoeslambda.stream de nomes.
+         * cria uma stream diretamente a partir dos valores informados.
          */
         Stream<String> st2 = Stream.of("Maria", "Alex", "Bob");
 
@@ -48,11 +38,8 @@ public class Exemplo1 {
          * Aqui:
          * começa em 0 e soma 2 a cada novo elemento.
          *
-         * Resultado:
-         * 0, 2, 4, 6, 8...
-         *
-         * Como essa programacaofuncionaleexpressoeslambda.stream é infinita, usamos limit(10)
-         * para pegar apenas os 10 primeiros elementos.
+         * Como essa stream é infinita, usamos limit(10)
+         * para pegar apenas os 10 primeiros valores.
          */
         Stream<Integer> st3 = Stream.iterate(0, x -> x + 2);
 
@@ -67,7 +54,7 @@ public class Exemplo1 {
          * Exemplo:
          * 0, 1, 1, 2, 3, 5, 8, 13...
          *
-         * Aqui, cada elemento da programacaofuncionaleexpressoeslambda.stream é um array com dois valores:
+         * Aqui, cada elemento da stream é um array com dois valores:
          * [atual, próximo]
          *
          * Estado inicial:
@@ -76,8 +63,8 @@ public class Exemplo1 {
          * Regra:
          * [segundo, primeiro + segundo]
          *
-         * Depois usamos map(p -> p[0]) para pegar apenas
-         * o primeiro valor de cada par.
+         * Depois, map(p -> p[0]) pega apenas o primeiro valor de cada par,
+         * formando a sequência final de Fibonacci.
          */
         Stream<Long> st4 = Stream
                 .iterate(
