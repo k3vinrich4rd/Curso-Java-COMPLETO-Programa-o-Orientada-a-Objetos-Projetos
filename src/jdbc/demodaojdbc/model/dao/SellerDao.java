@@ -14,7 +14,7 @@ public interface SellerDao {
     void update(Seller obj);
 
     //Operação responsável por excluir um seller do banco de dados com base no seu ID.
-    void deleteById(Seller id);
+    void deleteById(Integer id);
 
     //Operação responsável por buscar um seller no banco de dados com base no seu ID.
     Seller findById(Integer id);
