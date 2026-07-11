@@ -1,6 +1,7 @@
 package jdbc.demodaojdbc.model.dao;
 
 import jdbc.demodaojdbc.model.impl.SellerDaoJDBC;
+import jdbc.exemplo1.DB;
 
 //Classe responsável por fornecer instâncias de objetos DAO (Data Access Object) para interagir com o banco de dados.
 // A classe DaoFactory atua como uma fábrica de objetos DAO, permitindo que outras partes do sistema obtenham instâncias de DAO sem precisar conhecer os detalhes de implementação.
@@ -12,6 +13,6 @@ public class DaoFactory {
     // Ao chamar esse método, outras partes do sistema podem obter uma instância de SellerDao
     // sem precisar se preocupar com a implementação específica, promovendo o desacoplamento entre
     public static SellerDao createSellerDao() {
-        return new SellerDaoJDBC();
+        return new SellerDaoJDBC(DB.getConnection());
     }
 }
