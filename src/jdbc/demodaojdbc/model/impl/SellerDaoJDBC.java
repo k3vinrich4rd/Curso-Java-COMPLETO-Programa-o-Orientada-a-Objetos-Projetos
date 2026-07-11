@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //Classe que implementa a interface SellerDao, fornecendo a implementação dos métodos de acesso a dados para a entidade Seller.
 // A classe SellerDaoJDBC utiliza uma conexão com o banco de dados para realizar operações de inserção, atualização, exclusão e consulta de objetos Seller.
@@ -36,6 +39,7 @@ public class SellerDaoJDBC implements SellerDao {
     public void deleteById(Seller id) {
 
     }
+
 
     @Override
     public Seller findById(Integer id) {
@@ -115,5 +119,61 @@ public class SellerDaoJDBC implements SellerDao {
     @Override
     public List<Seller> findAll() {
         return List.of();
+    }
+
+
+    // O método findByDepartment(Integer departmentId) é responsável por buscar todos os vendedores (Seller)
+    //  associados a um determinado departamento (Department) no banco de dados.
+    // Ele recebe como parâmetro o ID do departamento e retorna uma lista de objetos Seller que pertencem a esse departamento.
+    // O método utiliza uma consulta SQL com INNER JOIN para combinar os dados da tabela seller com a tabela department,
+    // permitindo obter o nome do departamento associado a cada vendedor.
+    @Override
+    public List<Seller> findByDepartment(Department department) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+
+            //Esse sql seleciona todos os vendedores (seller) e o nome do departamento (DepName) associado a cada vendedor,
+            // filtrando os resultados pelo ID do departamento fornecido como parâmetro (departmentId).
+            // O resultado da consulta será ordenado pelo nome do vendedor (Name).
+            st = conn.prepareStatement(
+                    "SELECT seller.*,department.Name as DepName "
+                            + "FROM seller INNER JOIN department "
+                            + "ON seller.DepartmentId = department.Id "
+                            + "WHERE DepartmentId = ? "
+                            + "ORDER BY Name");
+
+            st.setInt(1, department.getId());
+            rs = st.executeQuery();
+
+            List<Seller> list = new ArrayList<>();
+
+            Map<Integer, Department> map = new HashMap<>();
+
+            //verifica se há registros no ResultSet rs. Se houver, significa que existem vendedores associados ao departamento especificado.
+            // Caso haja registros, o método entra em um loop while para iterar sobre cada registro no ResultSet rs.
+            while (rs.next()) {
+                Department dep = map.get(rs.getInt("DepartmentId"));
+                // Se o departamento ainda não estiver no mapa, ele é instanciado e adicionado ao mapa.
+                if (dep == null) {
+                    dep = instantiateDepartment(rs);
+                    map.put(rs.getInt("DepartmentId"), dep);
+
+
+                }
+                // Em seguida, um objeto Seller é instanciado com os dados do ResultSet rs e o departamento associado (dep).
+                // O objeto Seller é adicionado à lista list, que será retornada ao final do método.
+                // O uso do mapa (map) permite evitar a criação de múltiplos objetos Department
+                // para o mesmo departamento, economizando memória e melhorando a eficiência do código.
+                Seller obj = instantiateSeller(rs, dep);
+                list.add(obj);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
     }
 }

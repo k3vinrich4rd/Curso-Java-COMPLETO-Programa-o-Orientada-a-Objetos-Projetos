@@ -2,7 +2,10 @@ package jdbc.demodaojdbc.application;
 
 import jdbc.demodaojdbc.model.dao.DaoFactory;
 import jdbc.demodaojdbc.model.dao.SellerDao;
+import jdbc.demodaojdbc.model.entities.Department;
 import jdbc.demodaojdbc.model.entities.Seller;
+
+import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
@@ -16,6 +19,13 @@ public class Program {
         System.out.println("=== TEST 1: seller findById ===");
         Seller seller = sellerDao.findById(3);
         System.out.println(seller);
+
+        System.out.println("\n=== TEST 1: seller findById ===");
+        Department department = new Department(2, null);
+        List<Seller> list = sellerDao.findByDepartment(department);
+        for (Seller sellerObj : list) {
+            System.out.println(sellerObj);
+        }
 
 
     }

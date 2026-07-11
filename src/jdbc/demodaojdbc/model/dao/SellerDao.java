@@ -1,5 +1,6 @@
 package jdbc.demodaojdbc.model.dao;
 
+import jdbc.demodaojdbc.model.entities.Department;
 import jdbc.demodaojdbc.model.entities.Seller;
 
 import java.util.List;
@@ -20,6 +21,8 @@ public interface SellerDao {
 
     //Operação responsável por buscar todos os sellers no banco de dados.
     List<Seller> findAll();
+
+    List<Seller> findByDepartment(Department department);
 
 
 }
