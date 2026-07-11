@@ -28,6 +28,43 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public void insert(Seller obj) {
+        PreparedStatement st = null;
+        try {
+
+            // Implementação do método de inserção de um novo seller no banco de dados.
+            // O código cria um PreparedStatement para executar a instrução SQL de inserção,
+            // define os parâmetros com base nos atributos do objeto Seller e executa a atualização no banco de dados.
+            // Caso ocorra algum erro durante a execução, uma exceção DbException é lançada.
+
+            st = conn.prepareStatement(
+                    "INSERT INTO seller "+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+                            + "VALUES (?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+            st.setString(1, obj.getName());
+            st.setString(2, obj.getEmail());
+            st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime()));
+            st.setDouble(4, obj.getBaseSalary());
+            st.setInt(5, obj.getDepartament().getId());
+            int rowsAffected = st.executeUpdate();
+
+            // Verifica se a inserção foi bem-sucedida, obtendo as chaves geradas pelo banco de dados.
+            if (rowsAffected > 0) {
+                ResultSet rs = st.getGeneratedKeys();
+                // Se houver chaves geradas, o ID do objeto Seller é atualizado com o valor da chave gerada.
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    obj.setId(id);
+                }
+                DB.closeResultSet(rs);
+            } else {
+                throw new DbException("Unexpected error! No rows affected!");
+            }
+
+
+    } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override

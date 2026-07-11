@@ -5,6 +5,7 @@ import jdbc.demodaojdbc.model.dao.SellerDao;
 import jdbc.demodaojdbc.model.entities.Department;
 import jdbc.demodaojdbc.model.entities.Seller;
 
+import java.util.Date;
 import java.util.List;
 
 public class Program {
@@ -32,6 +33,11 @@ public class Program {
         for (Seller sellerObj : list) {
             System.out.println(sellerObj);
         }
+
+        System.out.println("\n=== TEST 4: seller insert ===");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id = " + newSeller.getId());
 
     }
 }
