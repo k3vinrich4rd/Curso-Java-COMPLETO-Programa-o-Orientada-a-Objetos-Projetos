@@ -12,8 +12,9 @@ public class Program {
         // instâncias de objetos DAO específicos, como SellerDao, sem expor
         // a implementação concreta (SellerDaoJDBC) para o restante do sistema.
         SellerDao sellerDao = DaoFactory.createSellerDao();
-        Seller seller = sellerDao.findById(3);
 
+        System.out.println("=== TEST 1: seller findById ===");
+        Seller seller = sellerDao.findById(3);
         System.out.println(seller);
 
 

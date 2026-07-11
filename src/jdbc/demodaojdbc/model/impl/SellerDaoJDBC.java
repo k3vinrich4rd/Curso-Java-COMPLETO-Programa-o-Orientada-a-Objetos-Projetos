@@ -69,16 +69,8 @@ public class SellerDaoJDBC implements SellerDao {
                 // Em seguida, um objeto Seller é criado e seus atributos são preenchidos com os dados obtidos do ResultSet rs, incluindo o objeto Department criado anteriormente.
                 // O objeto Seller é então retornado como resultado do método findBy
                 // O método findById retorna o objeto Seller encontrado no banco de dados com base no ID fornecido. Se nenhum seller for encontrado, o método retorna null.
-                Department dep = new Department();
-                dep.setId(rs.getInt("DepartmentId"));
-                dep.setName(rs.getString("DepName"));
-                Seller obj = new Seller();
-                obj.setId(rs.getInt("Id"));
-                obj.setName(rs.getString("Name"));
-                obj.setEmail(rs.getString("Email"));
-                obj.setBirthDate(rs.getDate("BirthDate"));
-                obj.setBaseSalary(rs.getDouble("BaseSalary"));
-                obj.setDepartament(dep);
+                Department dep = instantiateDepartment(rs);
+                Seller obj = instantiateSeller(rs, dep);
                 return obj;
             }
 
@@ -94,6 +86,29 @@ public class SellerDaoJDBC implements SellerDao {
 
         }
         return null;
+    }
+
+
+    // throws SQLException: Indica que o método pode lançar uma exceção do tipo SQLException,
+    // que é uma exceção verificada relacionada a operações de banco de dados.
+    // Isso significa que qualquer código que chame esse método
+    // deve lidar com a possibilidade de ocorrer uma exceção SQL.
+    private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
+        Seller seller = new Seller();
+        seller.setId(rs.getInt("Id"));
+        seller.setName(rs.getString("Name"));
+        seller.setEmail(rs.getString("Email"));
+        seller.setBirthDate(rs.getDate("BirthDate"));
+        seller.setBaseSalary(rs.getDouble("BaseSalary"));
+        seller.setDepartament(dep);
+        return seller;
+    }
+
+    private Department instantiateDepartment(ResultSet rs) throws SQLException {
+        Department department = new Department();
+        department.setId(rs.getInt("DepartmentId"));
+        department.setName(rs.getString("DepName"));
+        return department;
     }
 
 
