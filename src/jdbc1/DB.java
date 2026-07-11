@@ -1,6 +1,6 @@
-package jdbc;
+package jdbc1;
 
-import jdbc.exceptions.DbException;
+import jdbc1.exceptions.DbException;
 
 import java.io.FileInputStream;
 import java.io.IOException;
