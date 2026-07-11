@@ -3,7 +3,6 @@ package jdbc3exemplo2.application;
 import jdbc3exemplo2.DB;
 
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Program {
