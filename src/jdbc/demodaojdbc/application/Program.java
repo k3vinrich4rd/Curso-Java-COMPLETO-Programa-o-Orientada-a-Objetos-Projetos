@@ -1,7 +1,7 @@
-package jdbc.demodaojdbc.entities.application;
+package jdbc.demodaojdbc.application;
 
-import jdbc.demodaojdbc.entities.Department;
-import jdbc.demodaojdbc.entities.Seller;
+import jdbc.demodaojdbc.model.entities.Department;
+import jdbc.demodaojdbc.model.entities.Seller;
 
 import java.util.Date;
 
