@@ -1,9 +1,10 @@
 package jdbc.demodaojdbc.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Seller {
+public class Seller implements Serializable {
     private Integer id;
     private String name;
     private String email;
@@ -89,13 +90,6 @@ public class Seller {
 
     @Override
     public String toString() {
-        return "Seller{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birthDate=" + birthDate +
-                ", baseSalary=" + baseSalary +
-                ", departament=" + department +
-                '}';
+        return "Seller [" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", birthDate=" + birthDate + ", baseSalary=" + baseSalary + ", department=" + department + ']';
     }
 }
