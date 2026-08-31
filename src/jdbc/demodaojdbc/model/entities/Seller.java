@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+// Representa o vendedor persistido na tabela seller.
 public class Seller implements Serializable {
     private Integer id;
     private String name;
@@ -64,10 +65,12 @@ public class Seller implements Serializable {
         this.baseSalary = baseSalary;
     }
 
+    // Mantido com este nome para acompanhar a estrutura usada no restante do módulo.
     public Department getDepartament() {
         return department;
     }
 
+    // Associa o vendedor ao departamento correspondente.
     public void setDepartament(Department department) {
         this.department = department;
     }

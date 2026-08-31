@@ -31,13 +31,13 @@ public class Exercicio1 {
         System.out.print("Enter salary: ");
         double salary = input.nextDouble();
 
-        // try-with-resources fecha o arquivo automaticamente ao final do bloco.
+        // try-with-resources: garante que o BufferedReader será fechado automaticamente
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
 
-            // Lê o arquivo linha por linha.
+            // Lê cada linha do arquivo e cria um objeto Employee para cada linha
             String line = bufferedReader.readLine();
 
-            // Cada linha do CSV vira um objeto Employee.
+            // Enquanto houver linhas no arquivo, processa cada linha
             while (line != null) {
                 String[] fields = line.split(",");
                 employees.add(new Employee(
@@ -45,27 +45,30 @@ public class Exercicio1 {
                         fields[1],
                         Double.parseDouble(fields[2])
                 ));
-                // Avança para a próxima linha.
+                //Lê a próxima linha do arquivo
                 line = bufferedReader.readLine();
             }
 
-            // Filtra quem ganha acima do valor informado, extrai os e-mails e ordena.
+            // Usando Stream API para filtrar, mapear e ordenar os emails dos funcionários com salário superior ao valor fornecido
             List<String> emails = employees.stream()
                     .filter(employee -> employee.getSalary() > salary)
-                    .map(Employee::getEmail)
-                    .sorted()
-                    .toList();
+                    .map(Employee::getEmail)// Obtém o email do funcionário
+                    .sorted() // Ordena os emails em ordem alfabética
+                    .toList(); // Coleta os resultados em uma lista
 
-            System.out.println("Email of people whose salary is more than " + String.format("%.2f", salary) + ":");
-            emails.forEach(System.out::println);
+            System.out.println("Email of people whose salary is more than " + String.format("%.2f", salary) + ":"); // Exibe os emails filtrados e ordenados
+            emails.forEach(System.out::println); // Imprime cada email na lista
 
-            // Filtra os nomes iniciados com M e soma seus salários.
-            double sum = employees.stream()
-                    .filter(employee -> employee.getName().startsWith("M"))
-                    .map(Employee::getSalary)
-                    .reduce(0.0, Double::sum);
+            // Usando Stream API para calcular a soma dos salários dos funcionários cujo nome começa com 'M'
+            double sum = employees.stream()// Inicia o stream de funcionários
+                    .filter(employee -> employee.getName().startsWith("M"))// Filtra os funcionários cujo nome começa com 'M'
+                    .map(Employee::getSalary)// Obtém o salário do funcionário
+                    .reduce(0.0, Double::sum);// Reduz os salários filtrados somando-os, começando com 0.0
 
             System.out.println("Sum of salary of people whose name starts with 'M': " + String.format("%.2f", sum));
+
+
+            // Exibe a soma dos salários dos funcionários cujo nome começa com 'M'
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

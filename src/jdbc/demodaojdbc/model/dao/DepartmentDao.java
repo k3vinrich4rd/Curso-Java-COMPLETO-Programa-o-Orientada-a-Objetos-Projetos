@@ -4,22 +4,22 @@ import jdbc.demodaojdbc.model.entities.Department;
 
 import java.util.List;
 
+// Contrato de acesso a dados da entidade Department.
 public interface DepartmentDao {
 
-    //Operação responsável por inserir um novo departamento no banco de dados.
+    // Insere um novo departamento.
     void insert(Department obj);
 
-    //Operação responsável por atualizar as informações de um departamento existente no banco de dados.
+    // Atualiza os dados de um departamento existente.
     void update(Department obj);
 
-    //Operação responsável por excluir um departamento do banco de dados com base no seu ID.
+    // Remove um departamento pelo id.
     void deleteById(Integer id);
 
-    //Operação responsável por buscar um departamento no banco de dados com base no seu ID.
+    // Busca um departamento pelo id.
     Department findById(Integer id);
 
-    //Operação responsável por buscar todos os departamentos no banco de dados.
+    // Lista todos os departamentos.
     List<Department> findAll();
-
 
 }

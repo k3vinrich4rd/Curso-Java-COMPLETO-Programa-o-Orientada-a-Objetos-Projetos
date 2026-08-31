@@ -3,9 +3,7 @@ package jdbc.demodaojdbc.model.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-//Serializable é uma interface que permite que objetos de uma classe sejam convertidos em um fluxo de bytes, para poderem ser armazenados em arquivos ou
-// transmitidos pela rede. A interface Serializable não possui métodos, mas serve como um marcador para indicar que a classe pode ser serializada.
-//Isso significa que a classe pode ser convertida em um formato que pode ser armazenado ou transmitido, e depois reconstruído em um objeto novamente.
+// Representa o departamento associado aos vendedores.
 public class Department implements Serializable {
     private Integer id;
     private String name;

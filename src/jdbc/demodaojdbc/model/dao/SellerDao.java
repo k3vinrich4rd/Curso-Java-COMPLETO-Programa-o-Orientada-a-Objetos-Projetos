@@ -5,24 +5,25 @@ import jdbc.demodaojdbc.model.entities.Seller;
 
 import java.util.List;
 
+// Contrato de acesso a dados da entidade Seller.
 public interface SellerDao {
 
-    //Operação responsável por inserir um novo seller no banco de dados.
+    // Insere um novo vendedor.
     void insert(Seller obj);
 
-    //Operação responsável por atualizar as informações de um seller existente no banco de dados.
+    // Atualiza os dados de um vendedor existente.
     void update(Seller obj);
 
-    //Operação responsável por excluir um seller do banco de dados com base no seu ID.
+    // Remove um vendedor pelo id.
     void deleteById(Integer id);
 
-    //Operação responsável por buscar um seller no banco de dados com base no seu ID.
+    // Busca um vendedor pelo id.
     Seller findById(Integer id);
 
-    //Operação responsável por buscar todos os sellers no banco de dados.
+    // Lista todos os vendedores.
     List<Seller> findAll();
 
+    // Lista os vendedores de um departamento.
     List<Seller> findByDepartment(Department department);
-
 
 }

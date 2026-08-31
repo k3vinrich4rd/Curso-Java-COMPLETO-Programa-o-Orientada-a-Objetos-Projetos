@@ -2,7 +2,6 @@ package entities;
 
 public class Product {
 
-    // Entidade simples usada para representar um produto.
     private String name;
     private Double price;
 
@@ -29,7 +28,6 @@ public class Product {
 
     @Override
     public String toString() {
-        // Representação textual útil para impressão e testes rápidos.
         return name + ", " + String.format("%.2f", price);
     }
 }

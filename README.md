@@ -1,52 +1,42 @@
 # Estudos Java - Curso Completo Udemy
 
-Bem-vindo(a) ao meu repositório de estudos em Java. Este projeto reúne exercícios, exemplos, anotações e resoluções desenvolvidos ao longo do curso **[Java COMPLETO Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/?couponCode=KEEPLEARNINGBR)**.
+Bem-vindo ao meu repositório de estudos em Java. Aqui concentro exercícios, exemplos, anotações e pequenas aplicações construídas ao longo do curso **[Java COMPLETO Programação Orientada a Objetos + Projetos](https://www.udemy.com/course/java-curso-completo/?couponCode=KEEPLEARNINGBR)**.
 
-## Sobre o repositório
+## Objetivo do repositório
 
-Meu objetivo com este material é construir um acervo de estudo que seja útil em três frentes:
+Este projeto foi organizado para servir como:
 
-- consolidar meu aprendizado em Java;
-- registrar minha evolução técnica com organização;
-- compartilhar conteúdo acessível com outras pessoas que também estejam estudando.
+- trilha prática de aprendizado em Java;
+- material de revisão por assunto;
+- registro da minha evolução técnica;
+- base pública para quem também deseja estudar a linguagem.
 
 ## O que você vai encontrar aqui
 
-O projeto está organizado por temas, acompanhando a evolução dos estudos:
+Os conteúdos estão distribuídos principalmente em `src/`, cobrindo temas como:
 
 - fundamentos da linguagem e lógica;
 - programação orientada a objetos;
 - vetores, matrizes e coleções;
 - tratamento de exceções;
 - interfaces, generics, set e map;
-- programação funcional, lambda e stream.
+- programação funcional com lambda e stream;
+- JDBC e aplicação com padrão DAO.
 
-## Estrutura principal
+## Aplicação em destaque
 
-O conteúdo-fonte está em `src/`.
+Além dos exercícios por módulo, o repositório também possui a aplicação `jdbc.demodaojdbc`, que demonstra:
 
-Para facilitar a navegação, existe um mapa de estudo em:
+- conexão com banco de dados via JDBC;
+- uso do padrão DAO;
+- entidades `Seller` e `Department`;
+- operações de inserção, atualização, remoção e consulta.
+
+Guias úteis para esse bloco:
 
 - [`src/README.md`](src/README.md)
-- [`src/GUIA_DE_COMENTARIOS.md`](src/GUIA_DE_COMENTARIOS.md)
-- [`src/programacaofuncionaleexpressoeslambda/README.md`](src/programacaofuncionaleexpressoeslambda/README.md)
-
-Esse arquivo resume:
-
-- a lógica atual das subpastas;
-- a ordem sugerida de estudo;
-- as áreas com maior prioridade de reorganização futura;
-- a proposta de crescimento do repositório.
-
-## Proposta do projeto
-
-Este repositório não foi pensado apenas como depósito de exercícios.
-Ele também funciona como:
-
-- trilha prática de aprendizado;
-- material de revisão;
-- base para documentação de conceitos;
-- portfólio de evolução profissional.
+- [`src/jdbc/README.md`](src/jdbc/README.md)
+- [`src/jdbc/demodaojdbc/README.md`](src/jdbc/demodaojdbc/README.md)
 
 ## Como utilizar
 
@@ -58,29 +48,12 @@ git clone https://github.com/k3vinrich4rd/curso-java-completo-udemy.git
 
 Depois:
 
-1. abra a pasta do projeto na sua IDE;
-2. navegue por `src/` conforme o tema que deseja estudar;
-3. use o arquivo [`src/README.md`](src/README.md) como guia de navegação.
+1. abra o projeto na sua IDE;
+2. navegue pelos módulos em `src/`;
+3. use os `README.md` internos como guia de estudo.
 
-## Próximos passos planejados
+## Observação
 
-Ao longo do tempo, este projeto será aprimorado com foco em:
-
-- comentários mais didáticos e enxutos;
-- padronização das subpastas;
-- documentação por módulo;
-- inclusão de novos conteúdos e revisões.
-
-## Materiais de apoio do próprio repositório
-
-Além dos códigos, o projeto também passa a contar com materiais de apoio para navegação e organização dos estudos:
-
-- [`src/README.md`](src/README.md) → mapa geral da estrutura de estudos;
-- [`src/GUIA_DE_COMENTARIOS.md`](src/GUIA_DE_COMENTARIOS.md) → padrão de comentários enxutos e didáticos;
-- [`src/programacaofuncionaleexpressoeslambda/README.md`](src/programacaofuncionaleexpressoeslambda/README.md) → lógica interna do módulo de programação funcional.
-
-## Contato
-
-Se quiser trocar ideias, sugerir melhorias ou acompanhar minha evolução, fique à vontade para entrar em contato.
+O projeto continua em evolução. A ideia é manter o conteúdo cada vez mais acessível, com comentários enxutos, documentação por módulo e exemplos organizados por tema.
 
 ---
